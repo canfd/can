@@ -1,0 +1,21 @@
+{
+  "name": "can",
+  "description": "A modular feature detection library for browser environments.",
+  "author": {
+    "name": "André König",
+    "email": "andre.koenig@konexmedia.com"
+  },
+  "version": "1.0.0",
+  "repository": {
+    "url": "git@github.com:canjs/can.git"
+  },
+  "license": "MIT",
+  "main": "./build/can.min.js",
+  "ignore": [
+      "./lib/**",
+      "./specs/**",
+      "gulpfile.js",
+      ".jshintrc.js",
+      ".travis.yml"
+  ]
+}

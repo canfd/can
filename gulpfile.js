@@ -55,11 +55,20 @@ gulp.task('clean', function () {
 });
 
 gulp.task('build', function () {
+    var source = './lib/index.js';
+
     sequence('clean', function () {
-        return gulp.src('./lib/index.js')
-            .pipe(rename(pkg.name + '-v' + pkg.version + '.js'))
+        return gulp.src(source)
+            .pipe(rename(pkg.name + '.js'))
+            .pipe(header(banner, {pkg : pkg}))
+            .pipe(gulp.dest(paths.build));        
+    });
+    
+    sequence('clean', function () {
+        return gulp.src(source)
+            .pipe(rename(pkg.name + '.min.js'))
             .pipe(uglify())
-            .pipe(header(banner, { pkg : pkg }))
+            .pipe(header(banner, {pkg : pkg}))
             .pipe(gulp.dest(paths.build));
     });
 });
