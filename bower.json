@@ -12,11 +12,11 @@
   "license": "MIT",
   "main": "./build/can.min.js",
   "ignore": [
-      "./lib/**",
-      "./specs/**",
+      "**/.*",
+      "lib",
+      "node_modules",
+      "specs",
       "gulpfile.js",
-      "karma.conf.js",
-      ".jshintrc.js",
-      ".travis.yml"
+      "karma.conf.js"
   ]
 }
