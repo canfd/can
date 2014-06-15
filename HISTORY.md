@@ -1,3 +1,7 @@
+# UNRELEASED
+
+  * ComponentJS support
+
 # 1.0.0 (2014-06-15)
 
   * Implemented environment for defining external feature detection suites.
