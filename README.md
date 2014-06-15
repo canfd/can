@@ -62,7 +62,7 @@ if (can.use('<your-name>')) {
 
 For a list of available detectors, check the [organization page](https://github.com/canjs) of `canjs`.
 
-There are only a few currently. So we need **your** help. If you have written an own detector and want to share it [drop us a message](info@konexmedia.com). We will add you as a member so that you can transfer your plugin to the organization then.
+There are only a few currently. So we need **your** help. If you have written an own detector and want to share it [drop us a message](mailto:info@konexmedia.com). We will add you as a member so that you can transfer your plugin to the organization then.
 
 ## Author
 
