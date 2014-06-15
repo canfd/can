@@ -50,6 +50,6 @@ describe('The "can" feature detector', function () {
         result = can.everything();        
         
         expect(typeof result).toBe('object');
-        expect(result['svg']).toBe(true);
+        expect(result.svg).toBe(true);
     });
 });

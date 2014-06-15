@@ -1,3 +1,10 @@
+/**
+ * can - A modular feature detector for browser environments.
+ * @version v1.0.0
+ * @author André König (andre.koenig@konexmedia.com)
+ * @license MIT
+ *
+ */
 /*
  * can
  *

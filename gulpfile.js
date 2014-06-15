@@ -41,6 +41,8 @@ paths.lib = [
     './lib/index.js'
 ];
 
+paths.build = './build';
+
 gulp.task('lint', function () {
     return gulp.src(paths.sources)
         .pipe(jshint('./.jshintrc'))
