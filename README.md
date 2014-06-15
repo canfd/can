@@ -53,9 +53,9 @@ can.define('<your-name>', {
 Done? Okay, cool. It is possible to use this check function with the help of `can` now:
 
 ```javascript
-    if (can.use('<your-name>')) {
-        // The browser supports it.
-    }
+if (can.use('<your-name>')) {
+    // The browser supports it.
+}
 ```
 
 # Available detectors
