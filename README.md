@@ -35,6 +35,18 @@ Checks if the given feature is available in the current browser environment.
 
 Defines an own detector (see below).
 
+#### can.everything()
+
+Executes all available feature detections and returns a detailed report as a hash map.
+
+```javascript
+    var result = can.everything();
+    
+    console.log(result['svg:image']);
+    console.log(result['data-uri']);
+    ...
+```
+
 ## Writing an own detector
 
 Do you want to write an own detector? Cool. It is easy. Guaranteed.
