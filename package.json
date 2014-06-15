@@ -1,6 +1,6 @@
 {
   "name": "can",
-  "description": "A modular feature detection library for browser environments.",
+  "description": "A modular feature detector for browser environments.",
   "author": {
     "name": "André König",
     "email": "andre.koenig@konexmedia.com"
