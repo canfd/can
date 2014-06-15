@@ -1,4 +1,4 @@
-# can
+# can [![Build Status](https://travis-ci.org/canjs/can.svg?branch=master)](https://travis-ci.org/canjs/can)
 
 A modular feature detector for browser environments.
 
