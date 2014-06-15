@@ -15,6 +15,7 @@
       "./lib/**",
       "./specs/**",
       "gulpfile.js",
+      "karma.conf.js",
       ".jshintrc.js",
       ".travis.yml"
   ]

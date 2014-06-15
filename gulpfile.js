@@ -16,7 +16,7 @@
 var gulp = require('gulp');
 var sequence = require('run-sequence');
 var jshint = require('gulp-jshint');
-var jasmine = require('gulp-jasmine');
+var karma = require('gulp-karma');
 var rimraf = require('gulp-rimraf');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
@@ -34,9 +34,12 @@ var banner = ['/**',
         ' *',
         ' */', ''].join('\n');
 
-paths.build = './build';
-paths.sources = ['./lib/**/*.js', './specs/**/*.js', 'gulpfile.js'];
+paths.sources = ['./lib/**/*.js', './specs/**/*.js', 'gulpfile.js', 'karma.conf.js'];
 paths.specs   = ['./specs/**/*.spec.js'];
+
+paths.lib = [
+    './lib/index.js'
+];
 
 gulp.task('lint', function () {
     return gulp.src(paths.sources)
@@ -45,8 +48,11 @@ gulp.task('lint', function () {
 });
 
 gulp.task('test', function () {
-    return gulp.src(paths.specs)
-        .pipe(jasmine());
+    return gulp.src(paths.lib.concat(paths.specs))
+        .pipe(karma({
+            configFile: 'karma.conf.js',
+            action: 'run'
+        }));
 });
 
 gulp.task('clean', function () {
