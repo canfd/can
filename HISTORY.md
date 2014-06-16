@@ -1,6 +1,8 @@
-# UNRELEASED
+# FUTURE 2.1.0
 
-__Release 2.0.0__
+  * Support for executing all detectors at once (`everything`).
+
+# UNRELEASED
 
   * Caching layer.
   * Support for async tests.
