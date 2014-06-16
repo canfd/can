@@ -21,7 +21,7 @@ describe('The "can" feature detector', function () {
         }
     };
 
-    it('should be defined', function () {
+    it('should be defined as a global variable', function () {
         expect(window.can).toBeDefined();
     });
     

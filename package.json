@@ -9,6 +9,7 @@
   "repository": {
     "url": "git@github.com:canjs/can.git"
   },
+  "main": "./build/can.js",
   "license": "MIT",
   "scripts": {
     "test": "gulp"

@@ -1,0 +1,12 @@
+{
+    "name": "can",
+    "repository": "canjs/can",
+    "version": "1.0.1",
+    "description": "A modular feature detector for browser environments.",
+    "main": "./build/can.js",
+    "author": {
+      "name": "André König",
+      "email": "andre.koenig@konexmedia.com"
+    },
+    "license": "MIT"
+}
