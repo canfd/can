@@ -8,5 +8,6 @@
       "name": "André König",
       "email": "andre.koenig@konexmedia.com"
     },
+    "scripts": ["./build/can.js"],
     "license": "MIT"
 }
