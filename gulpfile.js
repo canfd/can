@@ -29,7 +29,7 @@ var paths = {};
 
 var banner = ['/**',
         ' * <%= pkg.name %> - <%= pkg.description %>',
-        ' * @version v<%= pkg.version %>',
+        ' * @version <%= pkg.version %>',
         ' * @author <%= pkg.author.name %> (<%= pkg.author.email %>)',
         ' * @license <%= pkg.license %>',
         ' *',

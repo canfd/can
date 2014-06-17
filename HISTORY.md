@@ -1,7 +1,7 @@
 # UNRELEASED
 
-  * Caching layer.
   * Support for async tests.
+  * Caching layer.
 
 # 1.0.0 (2014-06-15)
 
