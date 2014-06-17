@@ -48,6 +48,7 @@ You only have to provide a name and define a descriptor object which contains a 
 can.use('<detector-name>', function (err, supports) {
     if (supports) {...}
 });
+```
 
 ### Synchronous detectors
 
