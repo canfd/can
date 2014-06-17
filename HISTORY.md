@@ -1,12 +1,7 @@
-# FUTURE 2.1.0
-
-  * Support for executing all detectors at once (`everything`).
-
 # UNRELEASED
 
   * Caching layer.
   * Support for async tests.
-  * Unit tests
 
 # 1.0.0 (2014-06-15)
 

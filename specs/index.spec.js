@@ -13,11 +13,21 @@
 
 'use strict';
 
+/* global expect,describe,it */
 describe('The "can" feature detector', function () {
 
-    var suite = {
-        check : function () {
+    var sync = {
+        check : function check () {
             return true;
+        }
+    };
+
+    var async = {
+        async: true,
+        check : function check (callback) {
+            setTimeout(function () {
+                callback(null, true);
+            }, 500);
         }
     };
 
@@ -25,31 +35,33 @@ describe('The "can" feature detector', function () {
         expect(window.can).toBeDefined();
     });
     
-    it('should provide an API for defining detection tasks', function () {
+    it('should provide an API for defining synchronous detector tests', function (done) {
         var can = window.can;
         
-        can.define('svg', suite);
+        can.define('svg', sync);
         
-        expect(Object.keys(can.$suites).length).toBe(1);
+        expect(Object.keys(can.$detectors).length).toBe(1);
+        
+        can.use('svg', function (err, supports) {
+            expect(err).toBeNull();
+            expect(supports).toBe(true);
+            
+            done();
+        });
     });
     
-    it('should be able to execute a detection suite', function () {
+    it('should provide an API for defining asynchronous detector tests', function (done) {
         var can = window.can;
         
-        can.define('svg', suite);
+        can.define('svg', async);
         
-        expect(can.use('svg')).toBe(true);
-    });
-
-    it('should be able to execute all detection suite at once', function () {
-        var can = window.can;
-        var result;
-
-        can.define('svg', suite);
-
-        result = can.everything();        
+        expect(Object.keys(can.$detectors).length).toBe(1);
         
-        expect(typeof result).toBe('object');
-        expect(result.svg).toBe(true);
+        can.use('svg', function (err, supports) {
+            expect(err).toBeNull();
+            expect(supports).toBe(true);
+            
+            done();
+        });
     });
 });

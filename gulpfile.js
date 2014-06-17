@@ -21,6 +21,7 @@ var rimraf = require('gulp-rimraf');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
 var header = require('gulp-header');
+var frep = require('gulp-frep');
 
 var pkg = require('./package.json');
 
@@ -33,6 +34,25 @@ var banner = ['/**',
         ' * @license <%= pkg.license %>',
         ' *',
         ' */', ''].join('\n');
+
+var replacements = [
+    {
+        pattern: '{{name}}',
+        replacement: pkg.name
+    },
+    {
+        pattern: '{{description}}',
+        replacement: pkg.description
+    },
+    {
+        pattern: '{{version}}',
+        replacement: pkg.version
+    },
+    {
+        pattern: '{{author}}',
+        replacement: pkg.author.name + ' (' + pkg.author.email + ')'
+    }
+];
 
 paths.sources = ['./lib/**/*.js', './specs/**/*.js', 'gulpfile.js', 'karma.conf.js'];
 paths.specs   = ['./specs/**/*.spec.js'];
@@ -69,6 +89,7 @@ gulp.task('build', function () {
         return gulp.src(source)
             .pipe(rename(pkg.name + '.js'))
             .pipe(header(banner, {pkg : pkg}))
+            .pipe(frep(replacements))
             .pipe(gulp.dest(paths.build));        
     });
     
@@ -77,6 +98,7 @@ gulp.task('build', function () {
             .pipe(rename(pkg.name + '.min.js'))
             .pipe(uglify())
             .pipe(header(banner, {pkg : pkg}))
+            .pipe(frep(replacements))
             .pipe(gulp.dest(paths.build));
     });
 });
