@@ -15,19 +15,21 @@ If you think that a more modularized way would be a good solution then give `can
 3. Add references to your HTML.
 
     <script src="<your-bower-components>/can/can.js"></script>
-    <script src="<your-bower-components>/can-svg/can-svg.js"></script>
+    <script src="<your-bower-components>/can.svg/can.svg.js"></script>
 
 4. Use it
 
 ```javascript
-if (can.use('svg')) {
-    // Do something special
-}
+can.use('svg:image', function (err, supports) {
+    if (supports) {
+        // Do something special.
+    }
+});
 ```
 
 ## Methods
 
-#### can.use(name);
+#### can.use(name, callback);
 
 Checks if the given feature is available in the current browser environment.
 
@@ -35,25 +37,25 @@ Checks if the given feature is available in the current browser environment.
 
 Defines an own detector (see below).
 
-#### can.everything()
-
-Executes all available feature detections and returns a detailed report as a hash map.
-
-```javascript
-    var result = can.everything();
-    
-    console.log(result['svg:image']);
-    console.log(result['data-uri']);
-    ...
-```
-
 ## Writing an own detector
 
 Do you want to write an own detector? Cool. It is easy. Guaranteed.
-You only have to provide a name and define a descriptor object which contains a `check` function. This check function has to return a boolean value. That's all.
+You only have to provide a name and define a descriptor object which contains a `check` function. There are two types of possible detectors `synchronous` and `asynchronous` ones.
+
+**Note:** It does not matter how the detector is written (async or sync), executing it follows always the same (async) API:
+
+```javascript
+can.use('<detector-name>', function (err, supports) {
+    if (supports) {...}
+});
+
+### Synchronous detectors
+
+Sometimes you are in the comfy situation where you are able to check the existence of a feature in a synchronous manner. You only have to define a check function which returns a boolean. That's all.
 
 ```javascript
 can.define('<your-name>', {
+
     check : function check () {
         // Check the browser environment.
 
@@ -62,12 +64,26 @@ can.define('<your-name>', {
 });
 ```
 
-Done? Okay, cool. It is possible to use this check function with the help of `can` now:
+### Asynchronous detectors
+
+But ... There are also sometimes situations where you have to check a feature in an asynchronous way (loading images and check if the browser supports specific URIs for instance). Writing such feature detectors and integrate them into the `can.js` environment is an easy game. An example:
 
 ```javascript
-if (can.use('<your-name>')) {
-    // The browser supports it.
-}
+can.define('<your-name>', {
+    async: true,
+    check : function check (done) {
+        // Do an async operation and then execute the `done` callback, like:
+        var image = new Image();
+        image.addEventListener('load', function () {
+
+            // Execute the `done` callback in _an error first_ way:
+            //
+            //     done([error], [test result as boolean]);
+            //
+            done(null, true);
+        });
+    }
+});
 ```
 
 # Available detectors
