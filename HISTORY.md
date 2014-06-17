@@ -1,3 +1,7 @@
+# UNRELEASED
+
+  * Increasing performance by a better solution for `$immediate`
+
 # 2.0.0 (2014-06-17)
 
   * Support for async tests.
