@@ -55,7 +55,7 @@ can.use('<detector-name>', function (err, supports) {
 Sometimes you are in the comfy situation where you are able to check the existence of a feature in a synchronous manner. You only have to define a check function which returns a boolean. That's all.
 
 ```javascript
-can.define('<your-name>', {
+can.define('<your-detector-name>', {
 
     check : function check () {
         // Check the browser environment.
@@ -70,7 +70,7 @@ can.define('<your-name>', {
 But ... There are also sometimes situations where you have to check a feature in an asynchronous way (loading images and check if the browser supports specific URIs for instance). Writing such feature detectors and integrate them into the `can.js` environment is an easy game. An example:
 
 ```javascript
-can.define('<your-name>', {
+can.define('<your-detector-name>', {
     async: true,
     check : function check (done) {
         // Do an async operation and then execute the `done` callback, like:
