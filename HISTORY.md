@@ -1,4 +1,4 @@
-# UNRELEASED
+# 2.0.0 (2014-06-17)
 
   * Support for async tests.
   * Caching layer.
