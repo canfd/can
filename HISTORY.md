@@ -1,8 +1,4 @@
-** FUTURE **
-
-* Increasing performance by a better solution for `$immediate`
-
-# UNRELEASED
+# 2.0.1 (2014-06-18)
 
   * Build will now be copied to the `dist` directory.
 
