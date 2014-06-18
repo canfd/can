@@ -1,6 +1,6 @@
 /**
  * can - A modular feature detector for browser environments.
- * @version 2.0.0
+ * @version 2.0.1
  * @author André König (andre.koenig@konexmedia.com)
  * @license MIT
  *
@@ -32,7 +32,7 @@
 
         this.name = 'can';
         this.description = 'A modular feature detector for browser environments.';
-        this.version = '2.0.0';
+        this.version = '2.0.1';
         this.author = 'André König (andre.koenig@konexmedia.com)';
     }
 

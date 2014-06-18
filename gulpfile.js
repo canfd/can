@@ -61,7 +61,7 @@ paths.lib = [
     './lib/index.js'
 ];
 
-paths.build = './build';
+paths.dist = './dist';
 
 gulp.task('lint', function () {
     return gulp.src(paths.sources)
@@ -78,7 +78,7 @@ gulp.task('test', function () {
 });
 
 gulp.task('clean', function () {
-    return gulp.src(paths.build)
+    return gulp.src(paths.dist)
         .pipe(rimraf());
 });
 
@@ -90,7 +90,7 @@ gulp.task('build', function () {
             .pipe(rename(pkg.name + '.js'))
             .pipe(header(banner, {pkg : pkg}))
             .pipe(frep(replacements))
-            .pipe(gulp.dest(paths.build));        
+            .pipe(gulp.dest(paths.dist));
     });
     
     sequence('clean', function () {
@@ -99,7 +99,7 @@ gulp.task('build', function () {
             .pipe(uglify())
             .pipe(header(banner, {pkg : pkg}))
             .pipe(frep(replacements))
-            .pipe(gulp.dest(paths.build));
+            .pipe(gulp.dest(paths.dist));
     });
 });
 
