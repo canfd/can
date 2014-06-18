@@ -1,6 +1,6 @@
-# FUTURE
+** FUTURE **
 
-  * Increasing performance by a better solution for `$immediate`
+* Increasing performance by a better solution for `$immediate`
 
 # UNRELEASED
 
